@@ -1,0 +1,47 @@
+@mixin wrapper {
+	max-width: map-get($breakpoints, 'xl');
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	@include md {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+@mixin heading-primary {
+	font-size: 2rem;
+	font-weight: 200;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	position: relative;
+	width: max-content;
+	text-shadow: 1px 1px 4px black;
+
+	@include md {
+		font-size: 2.5rem;
+	}
+
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 1px;
+		background-color: $content-foreground;
+		margin-top: 1rem;
+	}
+}
+
+@mixin heading-secondary {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.75rem;
+	color: $content-foreground;
+}
+
+@mixin block {
+	display: flex;
+	flex-direction: column;
+}
