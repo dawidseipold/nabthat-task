@@ -17,6 +17,7 @@ const config = {
 			$styles: './src/styles',
 			$context: './src/context',
 			$utils: './src/utils',
+			$db: './src/db',
 			$media: './media'
 		}
 	}
