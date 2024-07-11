@@ -1,5 +1,9 @@
 <script>
 	import { Logo } from '$components/data-display/logo';
+	import { getDetailsState } from '$context/details-state.svelte';
+	import { clsx } from 'clsx';
+
+	const detailsState = getDetailsState();
 </script>
 
 <header class="header">
@@ -11,7 +15,8 @@
 				href="https://www.dawidseipold.com"
 				rel="noopener noreferrer"
 				target="_blank"
-				class="text-box__bottom">Dawid Seipold</a
+				class={clsx('text-box__bottom', { ['active']: detailsState.get()?.visible })}
+				>Dawid Seipold</a
 			>
 		</div>
 	</div>
@@ -60,7 +65,7 @@
 			display: none;
 			font-weight: 300;
 
-			.text-box:hover & {
+			&.active {
 				display: block;
 			}
 		}
