@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Icon from '$components/data-display/icon/icon.svelte';
 </script>
 
 <a href="/" class="logo">
