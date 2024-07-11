@@ -1,8 +1,11 @@
 <script>
 	import { Footer } from '$components/layout/footer';
 	import { Header } from '$components/layout/header';
+	import { setDetailsState } from '$context/details-state.svelte';
 
 	let { children } = $props();
+
+	setDetailsState();
 </script>
 
 <div class="wrapper">
