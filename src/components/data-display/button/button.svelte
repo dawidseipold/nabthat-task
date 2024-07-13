@@ -9,17 +9,27 @@
 </button>
 
 <style lang="scss">
-	@import '$styles/abstracts/variables';
+	@use 'sass:color';
+	@import '$styles/variables';
 
 	.btn {
 		border: 1px solid $content-foreground;
 		border-radius: 2px;
-		padding: 0.5rem 2rem;
+		padding: 0.75rem 3rem;
 		font-weight: 700;
+		font-size: 1.25rem;
+		color: $dimmed-foreground;
 		text-transform: uppercase;
+		width: max-content;
 
 		&:hover {
 			cursor: pointer;
+			background: linear-gradient(
+				90deg,
+				color.adjust($accent, $lightness: 10%) 0%,
+				color.adjust($accent, $lightness: 20%) 100%
+			);
+			color: $content-foreground;
 		}
 	}
 </style>

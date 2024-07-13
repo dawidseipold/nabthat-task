@@ -16,8 +16,8 @@
 </a>
 
 <style lang="scss">
-	@import '$styles/abstracts/variables';
-	@import '$styles/abstracts/breakpoints';
+	@import '$styles/variables';
+	@import '$styles/breakpoints';
 
 	.logo {
 		display: flex;
@@ -28,9 +28,11 @@
 		border-radius: 50%;
 		background-color: $logo-background;
 
-		@include md {
-			height: 64px;
-			width: 64px;
+		@include breakpoint('md') {
+			& {
+				height: 64px;
+				width: 64px;
+			}
 		}
 
 		&:hover {
@@ -44,8 +46,10 @@
 			border-radius: 100%;
 			color: $logo-foreground;
 
-			@include md {
-				padding: 12px;
+			@include breakpoint('md') {
+				& {
+					padding: 12px;
+				}
 			}
 		}
 	}
