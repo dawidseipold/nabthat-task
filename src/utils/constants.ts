@@ -1,36 +1,36 @@
 import data from '$db/data.json';
 
-export const DATA = data;
+export const CONTENT = data;
+
+export type Content = typeof CONTENT;
+export type ContentItem = Content[number];
 
 export const OPTIONS = [
 	{
 		id: 1,
 		title: 'opcja pierwsza',
-		fn: (data: typeof DATA) => {
-			return data[0];
+		fn: () => {
+			return 1;
 		}
 	},
 	{
 		id: 2,
 		title: 'opcja druga',
-		fn: (data: typeof DATA) => {
-			return data[1];
+		fn: () => {
+			return 2;
 		}
 	},
 	{
 		id: 3,
 		title: 'opcja losowa',
-		fn: (data: typeof DATA, unusedIds: number[]) => {
-			if (unusedIds.length === 0) {
-				return alert('Brak elementów do wyświetlenia');
-			}
+		fn: (ids: number[]) => {
+			const getRandomId = () => Math.floor(Math.random() * ids.length);
+			const randomId = ids[getRandomId()];
 
-			const getRandomIndex = () => Math.floor(Math.random() * unusedIds.length);
-			const randomId = unusedIds[getRandomIndex()];
-
-			return data.find((item) => item.id === randomId);
+			return randomId;
 		}
 	}
 ];
 
-export type Option = (typeof OPTIONS)[number];
+export type Options = typeof OPTIONS;
+export type OptionsItem = Options[number];
