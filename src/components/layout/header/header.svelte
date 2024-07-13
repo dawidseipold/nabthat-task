@@ -23,12 +23,15 @@
 </header>
 
 <style lang="scss">
-	@import '$styles/abstracts/variables';
-	@import '$styles/abstracts/mixins';
-	@import '$styles/abstracts/breakpoints';
+	@import '$styles/variables';
+	@import '$styles/mixins';
+	@import '$styles/breakpoints';
 
 	.header {
 		background-color: $header-background;
+		position: sticky;
+		top: 0;
+		z-index: 1000;
 
 		&__wrapper {
 			@include wrapper;
@@ -39,9 +42,11 @@
 			padding-top: 1rem;
 			padding-bottom: 1rem;
 
-			@include md {
-				padding-top: 1rem;
-				padding-bottom: 1rem;
+			@include breakpoint('md') {
+				& {
+					padding-top: 1rem;
+					padding-bottom: 1rem;
+				}
 			}
 		}
 	}
@@ -53,8 +58,10 @@
 		justify-content: center;
 		color: $header-foreground;
 
-		@include md {
-			font-size: 1.5rem;
+		@include breakpoint('md') {
+			& {
+				font-size: 1.5rem;
+			}
 		}
 
 		&__top {
